@@ -207,34 +207,17 @@
             <li><a href="about.html">About</a></li>
             <li><a href="roster.html">Roster</a></li>
             <li><a href="schedule.html">Schedule</a></li>
-            <li><a href="merch.html">Merch</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Follow</h4>
-          <ul>
-            <li><a href="#">Twitter / X</a></li>
-            <li><a href="#">YouTube</a></li>
-            <li><a href="#">Twitch</a></li>
-            <li><a href="#">Instagram</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 CLICK CLUTCH Esports.</p>
-        <div class="social-links">
-          <a href="#" aria-label="Twitter">𝕏</a>
-          <a href="#" aria-label="YouTube">▶</a>
-          <a href="#" aria-label="Twitch">📡</a>
-          <a href="#" aria-label="Instagram">◈</a>
+          <p>© 2026 CLICK CLUTCH Esports.</p>
         </div>
       </div>
     </div>
   </footer>
 
   <script>
-    // Detect which page referred the user here via ?from= param
     const params   = new URLSearchParams(window.location.search);
     const from     = params.get('from'); // 'order' or 'contact'
 
@@ -251,7 +234,6 @@
       message.textContent  = 'Your merch order has been submitted successfully. We\'ll confirm your order and reach out to you with payment and shipping details soon. Gear up — your CC drops are on the way!';
       backBtn.href         = 'merch.html';
       backLabel.textContent= 'Back to Merch';
-      // Generate a simple order ref
       const ref = 'CC-' + Date.now().toString(36).toUpperCase().slice(-6);
       refEl.textContent = 'Order Reference: ' + ref;
     } else if (from === 'contact') {
@@ -261,7 +243,6 @@
       backBtn.href         = 'contact.html';
       backLabel.textContent= 'Back to Contact';
     } else {
-      // Fallback — use browser history if available
       backBtn.addEventListener('click', (e) => {
         if (document.referrer) {
           e.preventDefault();
@@ -272,7 +253,6 @@
       backLabel.textContent = 'Back to Home';
     }
 
-    // Hamburger nav
     const hamburger = document.getElementById('hamburger');
     const navMenu   = document.getElementById('nav-menu');
     hamburger.addEventListener('click', () => navMenu.classList.toggle('open'));
